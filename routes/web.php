@@ -46,4 +46,7 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/job', [JobsController::class, 'index']);
+Route::controller(JobsController::class)->group(function () {
+    Route::get('/jobsList', 'index');
+    Route::get('/aboutUs/{id}/{name}', 'about');
+});
