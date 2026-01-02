@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\JobsController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -8,11 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('aboutpage', [
-        'name' => 'thian'
-    ]);
-});
+// Route::get('/about', function () {
+//     return view('aboutpage', [
+//         'name' => 'thian'
+//     ]);
+// });
 
 Route::get('/contact/{id}', function ($id) {
     return view('contactus', [
@@ -46,7 +47,10 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::controller(JobsController::class)->group(function () {
-    Route::get('/jobsList', 'index');
-    Route::get('/aboutUs/{id}/{name}', 'about');
-});
+// Route::controller(JobsController::class)->group(function () {
+//     Route::get('/jobsList', 'index');
+//     Route::get('/aboutUs/{id}/{name}', 'about');
+// });
+Route::get('/aboutUs/{id}/{name}', [JobsController::class, 'about']);
+
+Route::get('/invoke/{name}/{email}', [TestController::class,'__invoke']);

@@ -11,7 +11,10 @@ class JobsController extends Controller
     }
 
      public function about($id, $name) {
-        return 'Id: ' . $id . ' Name: ' . $name;
+        return view('aboutUs', [
+            'id' => $id,
+            'name' => $name
+        ]); 
     }
 }
    
