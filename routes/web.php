@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\JobsController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
+
+
 
 
 Route::get('/', function () {
@@ -54,3 +58,5 @@ Route::get('/home', function () {
 Route::get('/aboutUs/{id}/{name}', [JobsController::class, 'about']);
 
 Route::get('/invoke/{name}/{email}', [TestController::class,'__invoke']);
+Route::get('/students/{id}/{name}', [StudentController::class, 'index']);
+Route::resource('/testing', TestingController::class)->name('index', 'testing.index');

@@ -1,4 +1,0 @@
-<div>
-    <h2>Contact Us</h2>
-    {{ $id }}
-</div>
