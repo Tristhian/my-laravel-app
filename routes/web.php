@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TestingController;
+use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -60,3 +63,12 @@ Route::get('/aboutUs/{id}/{name}', [JobsController::class, 'about']);
 Route::get('/invoke/{name}/{email}', [TestController::class,'__invoke']);
 Route::get('/students/{id}/{name}', [StudentController::class, 'index']);
 Route::resource('/testing', TestingController::class)->name('index', 'testing.index');
+
+// Route::get('/teachers', function () {
+//     return Teacher::all();
+// });
+Route::get('/teachers',[TeacherController::class,'index']);
+Route::post('/teachers/add',[TeacherController::class,'add']);
+Route::get('/teachers/{id}',[TeacherController::class,'show']);
+Route::get('/teachers/update/{id}',[TeacherController::class,'update']);
+Route::get('/teachers/delete/{id}',[TeacherController::class,'delete']);
